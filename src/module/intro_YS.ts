@@ -1,6 +1,6 @@
 // CSS 스타일을 추가하는 함수
 function addStyles() {
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   style.innerHTML = `
   .tab-content {
     display: none;
@@ -56,16 +56,16 @@ function createHTMLStructure(): string {
 // 콘텐츠를 업데이트하는 함수
 function updateContent() {
   const hash = window.location.hash;
-  const tabs = document.querySelectorAll('.tab-content');
+  const tabs = document.querySelectorAll(".tab-content");
   tabs.forEach((tab) => {
-    tab.classList.remove('active');
+    tab.classList.remove("active");
     if (hash && `#${tab.id}` === hash) {
-      tab.classList.add('active');
+      tab.classList.add("active");
     }
   });
 
   if (!hash) {
-    tabs[0].classList.add('active'); // 기본적으로 첫 번째 탭을 활성화합니다.
+    tabs[0].classList.add("active"); // 기본적으로 첫 번째 탭을 활성화합니다.
   }
 }
 
@@ -73,7 +73,7 @@ function updateContent() {
 function handleClick(event: Event) {
   event.preventDefault();
   const target = event.target as HTMLAnchorElement;
-  const id = target.getAttribute('href');
+  const id = target.getAttribute("href");
   if (id) {
     window.location.hash = id;
   }
@@ -81,15 +81,15 @@ function handleClick(event: Event) {
 
 // 초기화 함수
 function init() {
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   if (root) {
     root.innerHTML = createHTMLStructure();
-    window.addEventListener('hashchange', updateContent);
+    window.addEventListener("hashchange", updateContent);
     updateContent();
 
-    const links = root.querySelectorAll('a');
+    const links = root.querySelectorAll("a");
     links.forEach((link) => {
-      link.addEventListener('click', handleClick);
+      link.addEventListener("click", handleClick);
     });
   }
   addStyles();

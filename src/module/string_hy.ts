@@ -1,4 +1,4 @@
-import ul from '../module/ul_hy';
+import ul from "../module/ul_hy";
 
 const string = {
   /**
@@ -27,8 +27,8 @@ const string = {
   },
 };
 
-let a = ul('<li></li>');
-let test = string.main(a, './li_hy.ts');
+let a = ul("<li></li>");
+let test = string.main(a, "./li_hy.ts");
 
 // console.log(test);
 
